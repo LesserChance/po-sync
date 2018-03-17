@@ -1,6 +1,4 @@
 const int PO_READ_PIN = A0;         // pin to read bpm from, PO sync input
-const int WRITE_PIN_1_X = A0;       // pin to write 1x bpm to
-const int WRITE_PIN_TRIPLET_X = A1; // pin to write triplet bpm to
 const int BPM_READ_PIN = A3;        // pin to read from, analog pot
 const int CLICK_HI_DURATION = 6;    //ms necessary for a hi value to click
 const int MIN_TRIPLET_BPM = 90;     // the bottom threshold for non-doubled triplets
@@ -27,7 +25,7 @@ void setup() {
   // PO sync algorithm: high for 4-6ms, 2 clicks ber beat
   // seems like it cannot go less than 60bpm without malfunctioning
   Serial.begin(57600);
-  setBPM(120);
+  setBPM(bpm);
 }
 
 void loop() {
